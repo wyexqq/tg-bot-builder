@@ -1,0 +1,561 @@
+.tg-sim {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  background: var(--c-bg);
+  overflow: hidden;
+  color: var(--c-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+
+.tg-sim__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px 0 10px;
+  height: 36px;
+  min-height: 36px;
+  background: var(--c-surface-2);
+  border-bottom: 1px solid var(--c-border);
+  flex-shrink: 0;
+  gap: 4px;
+  user-select: none;
+  overflow: hidden;
+}
+
+.tg-sim__header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tg-sim__avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.tg-sim__header-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.tg-sim__bot-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--c-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tg-sim__bot-status {
+  font-size: 10px;
+  color: var(--c-text-3);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tg-sim__icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--c-text-3);
+  padding: 3px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: background 0.1s, color 0.1s;
+  flex-shrink: 0;
+}
+.tg-sim__icon-btn:hover {
+  background: var(--c-surface-3);
+  color: var(--c-text);
+}
+
+
+.tg-sim .panel-win-btn {
+  color: var(--c-text-3);
+  background: none;
+  border: none;
+}
+.tg-sim .panel-win-btn:hover {
+  background: var(--c-surface-3);
+  color: var(--c-text);
+}
+.tg-sim .panel-win-btn--close:hover {
+  background: rgba(239,68,68,0.12);
+  color: #f87171;
+}
+
+
+.tg-sim__chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+  background: var(--c-bg);
+}
+
+.tg-sim__chat::-webkit-scrollbar { width: 4px; }
+.tg-sim__chat::-webkit-scrollbar-track { background: transparent; }
+.tg-sim__chat::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: 2px;
+}
+
+
+.tg-sim__row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1px;
+}
+.tg-sim__row--user   { justify-content: flex-end; }
+.tg-sim__row--bot    { justify-content: flex-start; }
+.tg-sim__row--system { justify-content: center; }
+
+
+.tg-sim__system {
+  font-size: 10.5px;
+  color: var(--c-text-3);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 2px 10px;
+  max-width: 88%;
+  text-align: center;
+  margin: 4px 0;
+}
+
+
+.tg-sim__bubble {
+  max-width: 84%;
+  border-radius: 6px;
+  padding: 6px 10px 4px;
+  font-size: 12px;
+  line-height: 1.45;
+  word-break: break-word;
+  position: relative;
+}
+
+
+.tg-sim__bubble--user {
+  background: rgba(0, 120, 212, 0.18);
+  color: var(--c-text);
+  border: 1px solid rgba(0, 120, 212, 0.35);
+  border-bottom-right-radius: 2px;
+}
+
+:root.dark .tg-sim__bubble--user {
+  background: rgba(0, 120, 212, 0.22);
+  border-color: rgba(0, 120, 212, 0.4);
+}
+
+
+.tg-sim__bubble--user.tg-sim__bubble--btn-tap {
+  background: var(--c-surface-2);
+  border-color: var(--c-border);
+  color: var(--c-text-2);
+  font-style: italic;
+}
+
+
+.tg-sim__bubble--bot {
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-bottom-left-radius: 2px;
+}
+
+
+.tg-sim__msg-text {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.tg-sim__msg-text b,
+.tg-sim__msg-text strong { font-weight: 700; }
+.tg-sim__msg-text i,
+.tg-sim__msg-text em { font-style: italic; }
+.tg-sim__msg-text u { text-decoration: underline; }
+.tg-sim__msg-text s,
+.tg-sim__msg-text del { text-decoration: line-through; }
+.tg-sim__msg-text code {
+  background: var(--c-surface-3);
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-family: 'Cascadia Code', 'SF Mono', 'Consolas', monospace;
+  font-size: 11px;
+}
+.tg-sim__msg-text pre {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 4px 0;
+  font-family: 'Cascadia Code', 'SF Mono', 'Consolas', monospace;
+  font-size: 11px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+
+.tg-sim__ts {
+  font-size: 10px;
+  color: var(--c-text-3);
+  text-align: right;
+  margin-top: 2px;
+  user-select: none;
+}
+
+
+.tg-sim__media-card {
+  border-radius: 4px;
+  border: 1px solid var(--c-border);
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+  min-width: 160px;
+  background: var(--c-surface-2);
+}
+
+.tg-sim__media-icon {
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.tg-sim__media-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--c-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tg-sim__media-caption {
+  font-size: 12px;
+  color: var(--c-text-2);
+  text-align: center;
+  margin-top: 2px;
+  white-space: pre-wrap;
+}
+
+
+.tg-sim__inline-kbd {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 5px;
+}
+
+.tg-sim__inline-row {
+  display: flex;
+  gap: 3px;
+}
+
+.tg-sim__inline-btn {
+  flex: 1;
+  background: var(--c-surface-3);
+  border: 1px solid var(--c-border);
+  color: var(--c-accent);
+  border-radius: 3px;
+  padding: 5px 6px;
+  font-size: 11.5px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.1s, border-color 0.1s;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tg-sim__inline-btn:hover {
+  background: var(--c-surface-2);
+  border-color: var(--c-accent);
+}
+.tg-sim__inline-btn:active {
+  background: var(--c-surface);
+}
+
+
+.tg-sim__reply-kbd {
+  flex-shrink: 0;
+  background: var(--c-surface-2);
+  border-top: 1px solid var(--c-border);
+  padding: 5px 6px 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tg-sim__reply-row {
+  display: flex;
+  gap: 3px;
+}
+
+.tg-sim__reply-btn {
+  flex: 1;
+  background: var(--c-surface-3);
+  border: 1px solid var(--c-border);
+  color: var(--c-text);
+  border-radius: 3px;
+  padding: 6px 4px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.1s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+.tg-sim__reply-btn:hover {
+  background: var(--c-surface-2);
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+.tg-sim__reply-btn:active {
+  background: var(--c-surface);
+}
+
+
+.tg-sim__input-bar {
+  flex-shrink: 0;
+  background: var(--c-surface-2);
+  border-top: 1px solid var(--c-border);
+  padding: 6px 8px 7px;
+}
+
+.tg-sim__wait-hint {
+  font-size: 10.5px;
+  color: var(--c-accent);
+  padding-bottom: 4px;
+  padding-left: 2px;
+  opacity: 0.8;
+}
+
+.tg-sim__input-row {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.tg-sim__input {
+  flex: 1;
+  background: var(--c-input-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  color: var(--c-text);
+  font-size: 12px;
+  padding: 5px 10px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+.tg-sim__input:focus {
+  border-color: var(--c-accent);
+}
+.tg-sim__input::placeholder {
+  color: var(--c-text-3);
+}
+
+.tg-sim__send {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  background: var(--c-accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.12s, opacity 0.12s, transform 0.1s;
+  padding: 0;
+}
+.tg-sim__send:hover:not(:disabled) {
+  background: var(--c-accent-hover);
+  transform: scale(1.05);
+}
+.tg-sim__send:active:not(:disabled) {
+  transform: scale(0.95);
+}
+.tg-sim__send:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+}
+
+
+.tg-sim__icon-btn--profile-on {
+  color: var(--c-accent) !important;
+  background: rgba(0,120,212,0.12) !important;
+}
+
+
+.tg-sim__profile-drawer {
+  flex-shrink: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.22s ease, border-color 0.15s;
+  border-bottom: 0px solid var(--c-border);
+}
+
+.tg-sim__profile-drawer--open {
+  max-height: 300px;
+  border-bottom-width: 1px;
+}
+
+.tg-sim__profile-inner {
+  padding: 7px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--c-surface-2);
+}
+
+.tg-sim__profile-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+}
+
+.tg-sim__profile-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--c-text-3);
+  font-family: 'Cascadia Code', 'SF Mono', 'Consolas', monospace;
+  flex-shrink: 0;
+  min-width: 62px;
+}
+
+.tg-sim__profile-select {
+  flex: 1;
+  height: 22px;
+  background: var(--c-input-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  color: var(--c-text);
+  font-size: 11px;
+  font-family: inherit;
+  padding: 0 4px;
+  outline: none;
+  cursor: pointer;
+}
+.tg-sim__profile-select:focus { border-color: var(--c-accent); }
+
+.tg-sim__profile-input {
+  flex: 1;
+  height: 22px;
+  background: var(--c-input-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  color: var(--c-text);
+  font-size: 11px;
+  font-family: 'Cascadia Code', 'SF Mono', 'Consolas', monospace;
+  padding: 0 5px;
+  outline: none;
+  min-width: 0;
+}
+.tg-sim__profile-input:focus { border-color: var(--c-accent); }
+.tg-sim__profile-input--name { flex: 0 0 64px; }
+
+.tg-sim__profile-del {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: var(--c-text-3);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 2px;
+  transition: color 0.1s, background 0.1s;
+}
+.tg-sim__profile-del:hover { color: #f87171; background: rgba(239,68,68,0.12); }
+
+.tg-sim__profile-add {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.tg-sim__profile-eq {
+  font-size: 11px;
+  color: var(--c-text-3);
+  flex-shrink: 0;
+}
+
+.tg-sim__profile-add-btn {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--c-border);
+  border-radius: 3px;
+  background: var(--c-surface-3);
+  color: var(--c-text-2);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+.tg-sim__profile-add-btn:hover {
+  background: rgba(63,185,80,0.12);
+  color: #3fb950;
+  border-color: rgba(63,185,80,0.4);
+}
+
+.tg-sim__profile-empty {
+  font-size: 10.5px;
+  color: var(--c-text-3);
+  font-style: italic;
+  padding: 2px 0 4px;
+  line-height: 1.4;
+}
+
+
+.tg-sim__profile-label--flow {
+  color: var(--c-text-2);
+}
+.tg-sim__profile-input--placeholder {
+  color: var(--c-text-3) !important;
+  cursor: text;
+  font-style: italic;
+}

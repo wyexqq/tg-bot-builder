@@ -1,0 +1,116 @@
+.close-dlg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  animation: close-dlg-fade 0.12s ease;
+}
+
+@keyframes close-dlg-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.close-dlg {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  padding: 28px 28px 20px;
+  width: 320px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  animation: close-dlg-up 0.15s ease;
+  text-align: center;
+}
+
+@keyframes close-dlg-up {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.close-dlg__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: rgba(248, 150, 30, 0.1);
+  color: #f8961e;
+}
+
+.close-dlg__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-text);
+  margin: 0 0 6px;
+}
+
+.close-dlg__desc {
+  font-size: 13px;
+  color: var(--c-text-2);
+  margin: 0 0 20px;
+}
+
+.close-dlg__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.close-dlg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border: 1px solid var(--c-border);
+  border-radius: 5px;
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s;
+  width: 100%;
+}
+
+.close-dlg-btn:hover {
+  background: var(--c-surface-3);
+}
+
+.close-dlg-btn--primary {
+  background: var(--c-accent, #0078d4);
+  border-color: var(--c-accent, #0078d4);
+  color: #fff;
+}
+
+.close-dlg-btn--primary:hover {
+  background: var(--c-accent-hover, #106ebe);
+  border-color: var(--c-accent-hover, #106ebe);
+}
+
+.close-dlg-cancel {
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  background: transparent;
+  color: var(--c-text-3);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.12s, background 0.12s;
+}
+
+.close-dlg-cancel:hover {
+  color: var(--c-text);
+  background: var(--c-surface-2);
+}

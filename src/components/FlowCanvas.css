@@ -1,0 +1,147 @@
+.flow-canvas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  background: transparent;
+  min-width: 0;
+}
+
+.flow-wrap {
+  flex: 1;
+  overflow: hidden;
+  outline: none;
+}
+
+.tgb-markers { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
+.flow-canvas > .canvas-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 6;
+  height: 30px;
+  padding: 0 12px 0 10px;
+  border-radius: 999px !important;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  user-select: none;
+}
+.canvas-label .ic-svg { color: var(--text-3); }
+.canvas-label__count {
+  font-weight: 500;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+.flow-canvas > .canvas-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  height: 30px;
+  padding: 0 2px;
+  border-radius: 999px !important;
+  display: flex;
+  align-items: center;
+}
+.canvas-act {
+  width: 28px; height: 26px; border-radius: 999px; border: 0; background: none; padding: 0;
+  display: grid; place-items: center; color: var(--text-2); cursor: pointer;
+}
+.canvas-act:hover { background: var(--fill-2); color: var(--text); }
+
+.react-flow { background: transparent !important; }
+.react-flow__edges { z-index: 1000 !important; }
+.react-flow__edgelabel-renderer { z-index: 1001 !important; }
+
+.react-flow__panel.react-flow__controls {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  gap: 1px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--glass-brd);
+  box-shadow: 0 0 0 .5px var(--edge-hair), var(--shadow);
+}
+.react-flow__controls-button {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px;
+  background: transparent !important;
+  fill: var(--text-2) !important;
+  color: var(--text-2) !important;
+}
+.react-flow__controls-button svg { max-width: 12px; max-height: 12px; }
+.react-flow__controls-button .ic-svg { max-width: 14px; max-height: 14px; fill: none !important; }
+.react-flow__controls-button:hover { background: var(--fill-2) !important; color: var(--text) !important; fill: var(--text) !important; }
+
+.react-flow__minimap {
+  margin: 10px !important;
+
+  border-radius: 12px !important;
+  overflow: hidden;
+  background: var(--glass-strong) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--glass-brd);
+  box-shadow: 0 0 0 .5px var(--edge-hair), var(--shadow) !important;
+}
+.react-flow__minimap svg { display: block; }
+
+.canvas-empty-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 40px;
+  border-radius: 18px;
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 0 .5px var(--edge-hair), var(--shadow);
+  user-select: none;
+}
+.canvas-empty-hint__icon {
+  width: 44px; height: 44px; border-radius: 13px; margin-bottom: 4px;
+  display: grid; place-items: center;
+  color: var(--accent); background: var(--accent-soft);
+}
+.canvas-empty-hint__text { font-size: 14px; font-weight: 600; color: var(--text); }
+.canvas-empty-hint__sub { font-size: 12.5px; color: var(--text-3); }
+
+.react-flow__connection-path { stroke: var(--accent); stroke-width: 2; fill: none; }
+
+.edge-trace-flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent) 55%, #fff);
+  stroke-width: 2.5;
+  stroke-dasharray: 3 9;
+  stroke-linecap: round;
+  animation: edge-trace 0.9s linear infinite;
+  pointer-events: none;
+}
+@keyframes edge-trace { to { stroke-dashoffset: -12; } }
+
+.rf-node-error   > .comment-node,
+.rf-node-error   > .group-node { outline: 2px solid var(--err); outline-offset: 2px; }
+
+.sel-box-overlay {
+  position: fixed;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 6px;
+}

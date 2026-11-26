@@ -1,0 +1,85 @@
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.ce-head {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-right: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.ce-head .editor-tabs { flex: 1; min-width: 0; height: 42px !important; }
+.ce-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding-left: 6px;
+}
+
+.ce-sync {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  font-size: 12px;
+  color: var(--text-2);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ce-sync:hover { background: var(--fill); color: var(--text); }
+.ce-sync .sw { pointer-events: none; }
+
+.ce-apply {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 4px 12px -4px var(--accent-ring);
+}
+.ce-apply:hover { filter: brightness(1.07); }
+.ce-apply--quiet {
+  background: var(--fill);
+  color: var(--text-2);
+  box-shadow: none;
+  font-weight: 500;
+}
+.ce-apply--quiet:hover { background: var(--fill-2); color: var(--text); filter: none; }
+
+.editor-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.editor-wrap .monaco-editor,
+.editor-wrap .monaco-editor .margin,
+.editor-wrap .monaco-editor-background { background-color: transparent !important; }
+
+.editor-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-3);
+  font-size: 13px;
+}

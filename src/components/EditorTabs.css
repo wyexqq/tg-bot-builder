@@ -1,0 +1,135 @@
+.editor-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 35px;
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+
+.editor-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.etab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px 0 12px;
+  min-width: 100px;
+  max-width: 200px;
+  cursor: pointer;
+  border-right: 1px solid var(--c-border);
+  border-top: 1px solid transparent;
+  color: var(--c-text-2);
+  background: var(--c-surface);
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+
+.etab:hover {
+  background: var(--c-surface-2);
+  color: var(--c-text);
+}
+
+.etab--active {
+  background: var(--c-bg);
+  color: var(--c-text);
+  border-top-color: var(--c-accent);
+}
+
+.etab--active:hover {
+  background: var(--c-bg);
+}
+
+.etab-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.etab-icon--py {
+  background: #4ec9b0;
+}
+
+.etab-name {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+.etab-badge {
+  font-size: 9px;
+  color: var(--c-text-3);
+  padding: 1px 4px;
+  background: var(--c-surface-3);
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.etab-modified {
+  font-size: 14px;
+  line-height: 1;
+  color: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.etab-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--c-text-3);
+  cursor: pointer;
+  opacity: 0;
+  flex-shrink: 0;
+  transition: background 0.1s, color 0.1s, opacity 0.1s;
+}
+
+.etab:hover .etab-close,
+.etab--active .etab-close {
+  opacity: 1;
+}
+
+.etab-close:hover {
+  background: var(--c-surface-3);
+  color: var(--c-text);
+}
+
+.etab:has(.etab-modified) .etab-close {
+  opacity: 1;
+}
+
+.etab-ghost {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px 0 12px;
+  background: var(--c-surface-3);
+  border: 1px solid var(--c-accent);
+  border-top: 2px solid var(--c-accent);
+  color: var(--c-text);
+  font-size: 12px;
+  pointer-events: none;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  opacity: 0.92;
+  white-space: nowrap;
+}

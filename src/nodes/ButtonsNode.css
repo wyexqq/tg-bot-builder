@@ -1,0 +1,43 @@
+.btn-preview-list {
+  padding: 0 10px 10px;
+  margin-top: -3px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.btn-preview-row-group { display: flex; flex-direction: column; gap: 5px; }
+.btn-preview-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 28px;
+}
+.btn-preview-text {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: var(--fill);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-preview-text--primary {
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  color: var(--accent);
+}
+.btn-preview-text--dynamic {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-2);
+  border: 1px dashed var(--fill-2);
+  background: transparent;
+}
+.btn-preview-text--success { background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); }
+.btn-preview-text--danger  { background: color-mix(in srgb, var(--err) 12%, transparent); color: var(--err); }

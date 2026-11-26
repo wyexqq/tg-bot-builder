@@ -1,0 +1,141 @@
+.console-panel {
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  flex: 1;
+  min-height: 60px;
+  overflow: hidden;
+}
+
+.console-panel--fullscreen { flex: 1; }
+
+.console-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  height: 28px;
+  background: #252526;
+  border-bottom: 1px solid #2d2d2d;
+  flex-shrink: 0;
+}
+
+.console-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #cccccc;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.console-count {
+  font-size: 10px;
+  background: #3a3a3a;
+  color: #aaa;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
+
+.console-header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.console-output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 12px 4px;
+  font-family: 'Cascadia Code', 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  background: #1e1e1e;
+}
+
+.console-output::-webkit-scrollbar { width: 6px; }
+.console-output::-webkit-scrollbar-track { background: transparent; }
+.console-output::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 3px; }
+
+.console-line {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.console-line--log-info    { color: #d4d4d4; }
+.console-line--log-error   { color: #f48771; }
+.console-line--log-warn    { color: #dcdcaa; }
+.console-line--log-success { color: #4ec9b0; }
+
+.console-line--ps-out    { color: #cccccc; }
+.console-line--ps-err    { color: #f48771; }
+.console-line--ps-prompt { color: #4ec9b0; }
+.console-line--ps-meta   { color: #555; font-style: italic; }
+
+.console-line--system { color: #569cd6; font-style: italic; }
+
+.console-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  background: #1a1a1a;
+  border-top: 1px solid #2d2d2d;
+  flex-shrink: 0;
+}
+
+.console-prompt {
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+  font-size: 12px;
+  color: #4ec9b0;
+  flex-shrink: 0;
+}
+
+.console-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+  font-size: 12.5px;
+  color: #d4d4d4;
+  caret-color: #4ec9b0;
+}
+.console-input::placeholder { color: #444; }
+.console-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.console-btn {
+  background: #2d2d2d;
+  border: 1px solid #444;
+  color: #aaa;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.console-btn:hover { background: #3a3a3a; color: #ccc; border-color: #555; }
+.console-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.console-btn--run {
+  background: #1f4f1f;
+  border-color: #3a8a3a;
+  color: #4ec9b0;
+  padding: 2px 10px;
+}
+.console-btn--run:hover:not(:disabled) { background: #2a6a2a; }
+
+.console-btn--kill {
+  background: #4f1f1f;
+  border-color: #8a3a3a;
+  color: #f48771;
+}
+.console-btn--kill:hover { background: #6a2a2a; }
+
+.console-win-btn { color: #666 !important; }
+.console-win-btn:hover { background: #333 !important; color: #ccc !important; }
+.console-win-btn.panel-win-btn--close:hover { background: #5a1212 !important; color: #f48771 !important; }
